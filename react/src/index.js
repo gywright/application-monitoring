@@ -97,7 +97,11 @@ Sentry.init({
     }
 
     return event;
-  }
+  },
+  beforeSendTransaction(event, hint) {
+    console.log("tada");
+  },
+  attachStacktrace: true
 });
 
 // TODO is this best placement?
