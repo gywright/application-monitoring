@@ -1,5 +1,6 @@
 import time
 import sentry_sdk
+from appium.webdriver.common.appiumby import AppiumBy
 
 # Automatically capture HTTP Errors with range (400 - 599) status codes
 def test_httperror_android(android_emu_driver):
@@ -7,7 +8,7 @@ def test_httperror_android(android_emu_driver):
 
     try:
         # navigate to list app
-        android_emu_driver.find_element_by_accessibility_id('More').click()
+        android_emu_driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'More').click()
         android_emu_driver.find_element_by_id('com.example.vu.android:id/content').click()
 
         # swipe down to have the HTTP Error button in the frame
